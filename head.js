@@ -14,4 +14,6 @@ const head = function(arr) {
   }
 };
 
+assertEqual(head(), []);
+
 
