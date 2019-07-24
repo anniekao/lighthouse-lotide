@@ -22,7 +22,7 @@ const assertArraysEqual = function(actual, expected) {
 
 const letterPosition = function(str) {
   const countIndex = {};
-
+  str = str.split(' '). join('');
   for (let i = 0; i < str.length; i++) {
     if (countIndex[str[i]]) {
       countIndex[str[i]].push(i);
@@ -35,6 +35,7 @@ const letterPosition = function(str) {
   return countIndex;
 };
 
+console.log(letterPosition('lighthouse in the house'));
 
 
 
