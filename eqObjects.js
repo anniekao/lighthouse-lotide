@@ -6,7 +6,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-const eqArrays = function (arr1, arr2) {
+const eqArrays = function(arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false;
   }
@@ -18,7 +18,7 @@ const eqArrays = function (arr1, arr2) {
   return true;
 };
 
-const eqObjects = function (obj1, obj2) {
+const eqObjects = function(obj1, obj2) {
   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
     return false;
   }
