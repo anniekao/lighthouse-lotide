@@ -1,9 +1,21 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`🤖Assertion Passed: ${actual} === ${expected}`);
+const assertArraysEqual = function(actual, expected) {
+  if (eqArrays(actual, expected) === true) {
+    console.log(`✔✔✔ Array Assertion Passed: ${actual} === ${expected}`);
   } else {
-    console.log(`💩Assertion Failed: ${ actual } !== ${ expected }`);
+    console.log(`😡😡😡 Array Assertion Failed: ${actual} !== ${expected}`);
   }
+};
+
+const eqArrays = function(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1.length !== arr2.length || arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
 };
 
 const tail = function(arr) {
@@ -14,4 +26,8 @@ const tail = function(arr) {
   }
 };
 
-
+// Tests
+assertArraysEqual(tail([0, 1, 2, 3, 4]), [1, 2, 3, 4]);
+assertArraysEqual(tail([2, 3, 4]), [3, 4]);
+assertArraysEqual(tail([3, 4]), [4]);
+assertArraysEqual(tail(["a", "b", "c", "d"]), ["b", "c", "d"]);

@@ -23,12 +23,10 @@ const eqArrays = function(arr1, arr2) {
 };
 
 // Tests non-nested arrays
-console.log(eqArrays([2, 3], [4, 5])); // false
-console.log(eqArrays([1, 2, 3], [1, 2, 3])); // true
+// assertEqual(eqArrays([2, 3], [4, 5]), false);
+// assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
 
 // Tests nested arrays
-console.log(eqArrays([[2, 3], [4]], [[2, 3], [4]])); // true
-console.log(eqArrays([[2, 3], [4, 7]], [[2, 3], [4, 5]])); // false
-console.log(eqArrays([[2, 3], [4]], [[2, 3], [4]])); // => true
-console.log(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]])); // => false
-console.log(eqArrays([[2, 3], [4]], [[2, 3], 4])); // => false
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4]]), true);
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]]), false);
+assertEqual(eqArrays([[2, 3], [4]], [[2, 3], 4]), false);

@@ -18,6 +18,17 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
+const map = (arr, callback) => {
+  const results = [];
+
+  for (let item of arr) {
+    results.push(callback(item));
+  }
+  return results;
+};
+
+// Tests
+
 const words = [
   "ground",
   "control",
@@ -29,15 +40,6 @@ const words = [
   "schamhaar",
   "abartig"
 ];
-
-const map = (arr, callback) => {
-  const results = [];
-
-  for (let item of arr) {
-    results.push(callback(item));
-  }
-  return results;
-};
 
 const results1 = map(words, word => word[0]);
 assertArraysEqual(results1, ["g", "c", "t", "m", "t", "a", "f", "s", "a"]);

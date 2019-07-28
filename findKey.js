@@ -14,7 +14,7 @@ const findKey = (obj, callback) => {
   }
 };
 
-
+// Tests
 const obj1 = {
   'Blue Hill': { stars: 1 },
   'Akaleri': { stars: 3 },

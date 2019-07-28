@@ -1,17 +1,9 @@
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`🤖Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`💩Assertion Failed: ${ actual } !== ${ expected }`);
-  }
-};
-
 const assertObjectsEqual = function(actual, expected) {
   const inspect = require('util').inspect;
   if (eqObjects(actual, expected) === true) {
-    console.log(`✔✔✔ Array Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
+    console.log(`✔✔✔ Object Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
   } else {
-    console.log(`😡😡😡 Array Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
+    console.log(`😡😡😡 Object Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
   }
 };
 
@@ -35,7 +27,9 @@ const eqObjects = function(obj1, obj2) {
   for (let ele in obj1) {
     if (obj1.hasOwnProperty(ele) && obj2.hasOwnProperty(ele)) {
       if (Array.isArray(obj1[ele]) && Array.isArray(obj2[ele])) {
-        if (!eqArrays(obj1[ele], obj2[ele])) {
+        return eqArrays(obj1[ele], obj2[ele]);
+      } else if (typeof obj1[ele] === "object") {
+        if (eqObjects(obj1[ele], obj2[ele]) === false) {
           return false;
         }
       } else if (obj1[ele] !== obj2[ele]) {
@@ -46,5 +40,6 @@ const eqObjects = function(obj1, obj2) {
   return true;
 };
 
-assertObjectsEqual({dog: true, cat:false}, {dog:true, cat:false});
-assertObjectsEqual({name: 'Stephanie', age: 23}, {name: 'Marie', age: 93});
+// Tests
+assertObjectsEqual({a: 2, b: 3}, {b: 3, a: 2});
+assertObjectsEqual({z: 2, b: {c: 8, d: 9} }, { z: 2, b: {c: 8, d: 9} });

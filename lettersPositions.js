@@ -20,7 +20,7 @@ const assertArraysEqual = function(actual, expected) {
 };
 
 
-const letterPosition = function(str) {
+const letterPositions = function(str) {
   const countIndex = {};
   str = str.split(' '). join('');
   for (let i = 0; i < str.length; i++) {
@@ -35,7 +35,8 @@ const letterPosition = function(str) {
   return countIndex;
 };
 
-console.log(letterPosition('lighthouse in the house'));
-
-
-
+// Tests
+assertArraysEqual(letterPositions("hello").l, [2, 3]);
+assertArraysEqual(letterPositions("hello").e, [1]);
+assertArraysEqual(letterPositions("lighthouse in the house").t, [4, 12]);
+assertArraysEqual(letterPositions("lighthouse in the house").h, [3, 5, 13, 15]);
