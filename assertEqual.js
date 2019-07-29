@@ -6,7 +6,4 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-
-// Tests
-assertEqual("Lighthouse Labs", "Bootcamp"); // Fail
-assertEqual(1, 1); // Pass
+module.exports = assertEqual;
